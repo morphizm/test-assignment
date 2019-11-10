@@ -1,0 +1,15 @@
+<h1>The <%= @test_passage.test.title %> Test was completed</h1>
+
+<div>
+  <p> Correct questions: 
+      <%  if @test_passage.passed? %>
+      <span class="success"><%= @test_passage.correct_questions %></span><b> Successful</b>
+    <% else %>
+      <span class="fail"><%= @test_passage.correct_questions %></span><b> not Successful</b>
+    <% end %>
+  </p>
+  <p>Success rate is <%= @test_passage.total.round(3) %>%</p>
+</div>
+
+
+  <%= link_to 'Tests', tests_path, class: "btn btn-light" %>

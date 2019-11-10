@@ -1,0 +1,16 @@
+<div class="card" style="width: 18rem;">
+  <%= image_tag badge.picture_file, class: "card-img-top", alt: "badge" %>
+  <div class="card-body">
+    <h5 class="card-title">Name</h5>
+    <%= content_tag :p, badge.name, class: "card-text" %>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">Rule Name: <%= I18n.t("admin.badge.#{badge.rule_name}") %></li>
+    <li class="list-group-item">Rule Parameter: <%= badge.rule_parameter %></li>
+  </ul>
+  <div class="card-body">
+    <%= link_to 'Show', admin_badge_path(badge), class: "card-link" %>
+    <%= link_to 'Edit', edit_admin_badge_path(badge), class: "card-link" %>
+    <%= link_to 'Delete', admin_badge_path(badge), method: :delete, data: { confirm: 'Are you sure?' }, class: "card-link" %>
+  </div>
+</div>

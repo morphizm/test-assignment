@@ -1,0 +1,17 @@
+<h2><%= @question.title %></h2>
+
+<h2>Answers</h2>
+
+<ol class="list-group">
+  <%= render @question.answers %>
+</ol>
+
+<div class="btn-group" role="group" aria-label="Basic example">
+
+    <%= link_to "Back to questions", admin_test_path(@test), class: "btn btn-light" %>
+
+    <%= link_to 'Edit question', edit_admin_question_path, class: "btn btn-light" %>
+
+    <%= link_to 'New answer', new_admin_question_answer_path(@question), class: "btn btn-light" %>
+
+</div>

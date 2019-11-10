@@ -1,0 +1,12 @@
+<%= form_with model: [:admin, @question, @answer], local: true do |form| %>
+
+  <div class="form-group">
+    <%= form.label :title %>
+    <%= form.text_area :title, id: :answer_title, rows: 7, cols: 60, class: "form-control" %>
+  </div>
+  <div class="form-group form-check">
+    <%= form.check_box :correct, id: :answer_correct, class: "form-check-input" %>
+    <%= form.label :correct, class: "form-check-label" %>
+  </div>
+  <%= form.submit class: "btn btn-primary" %>
+<% end %>

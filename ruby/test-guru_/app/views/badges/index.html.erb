@@ -1,0 +1,18 @@
+<h1>Badges</h1>
+<div class="d-flex bd-highlight">
+  <div class="p-2 flex-fill bd-highlight">
+    <ul class="list-group">
+      Your Badges
+      <% @badges_user.each do |badge| %>
+        <li class="list-group-item"><%= badge.name %></li>
+      <% end %>
+  </div>
+  
+  <div class="p-2 flex-fill bd-highlight">
+    <ul class="list-group">
+      All Badges
+      <% @badges.each do |badge| %>
+        <li class="list-group-item"><%= badge.name %></li>
+      <% end %>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+<table class="table table-borderless">
+  <thead>
+    <tr>
+      <th scope="col">Test questions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%= render @test.questions %>  
+  </tbody>
+</table>
+<div class="btn-group" role="group" aria-label="Basic example">
+  <%= link_to "Back to tests", admin_tests_path, class: "btn btn-light" %>
+  <%= link_to 'Edit test', edit_admin_test_path(@test), class: "btn btn-light" %>
+  <%= link_to "New Question", new_admin_test_question_path(@test), class: "btn btn-light" %>
+</div>

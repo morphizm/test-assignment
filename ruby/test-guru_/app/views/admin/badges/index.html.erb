@@ -1,0 +1,9 @@
+<div class="container m-4">
+  <div class="card-group">
+    <% @badges.each do |badge| %>
+      <%= render 'badge', badge: badge %>
+    <% end %>
+  </div>
+</div>
+<%= link_to "New Badge", new_admin_badge_path, class: "btn btn-light" %>
+<%= link_to "Back", admin_tests_path, class: "btn btn-light" %>

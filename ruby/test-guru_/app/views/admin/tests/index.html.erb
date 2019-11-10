@@ -1,0 +1,39 @@
+<div class="container m-4">
+  <%= render 'shared/errors', resource: @test %>
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="sort-by-title pointer">
+          Title
+          <%= octicon 'arrow-up', class: 'text-success hide' %>
+          <%= octicon 'arrow-down', class: 'text-success hide' %>
+        </th>
+        <th scope="col">Level</th>
+        <th scope="col">Quantity questions</th>
+        <th scope="col">Timer</th>
+        <th scope="col" colspan="3">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tests.each do |test| %>
+      <tr>
+        <td class="align-middle">
+          <%= content_tag :span, test.title, class: 'test-title', data: { test_id: test.id } %>
+          <%= render 'form_inline', test: test == @test ? @test : test %>
+        </td>
+        <td class="align-middle"><%= test.level %></td>
+        <td class="align-middle"><%= question_quantity test %></td>
+        <td class="align-middle"><%= test.timer %></td>
+        <td class="align-middle"><%= link_to 'Show', admin_test_path(test), class: "btn btn-light" %></td>
+        <td class="align-middle"><%= link_to 'Edit', edit_admin_test_path(test), class: "btn btn-light form-inline-link", data: { test_id: test.id } %></td>
+        <td class="align-middle"><%= link_to 'Delete', admin_test_path(test), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-light" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to "New Test", new_admin_test_path, class: "btn btn-light" %>
+<%= link_to "Gists", admin_gists_path, class: "btn btn-light" %>
+<%= link_to "Badges", admin_badges_path, class: "btn btn-light" %>

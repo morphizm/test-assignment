@@ -1,0 +1,26 @@
+<h1>Pass the<%= @test_passage.test.title %> Test</h1>
+
+<div>
+  <%= @test_passage.current_question.title %>
+</div>
+
+<%= content_tag :div, class: 'test-passage', data: { current_question_id: @test_passage.current_question_number, total_questions: @test_passage.test.questions.count } do %>
+  <div class="progress">
+    <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+  </div>
+  Current question - <%= @test_passage.current_question_number  %>; 
+  Total amount questions - <%= @test_passage.test.questions.count %>
+<% end %>
+<%= form_with url: test_passage_path(@test_passage), local: true,  method: :put do |form| %>
+  <%= form.collection_check_boxes :answer_ids, @test_passage.current_question.answers, :id, :title, include_hidden: false do |b| %>
+  <div class="form-check">
+    <%= b.check_box id: "answer_ids_#{b.object.id}", class: "from-check-input" %>
+    <%= b.label class: "from-check-label" %></div>
+  <% end %>
+
+  <%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %>
+
+  <%= form.submit 'Next', class: "btn btn-primary " %>
+<% end %>
+
+<%= content_tag :div, '', class: "timer", data: { left_time: @test_passage.left_time } %>

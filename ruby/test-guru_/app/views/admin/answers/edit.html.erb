@@ -1,0 +1,10 @@
+<h1>Editing Answer</h1>
+
+<div>
+  <%= @answer.question.title %>
+</div>
+
+<%= render 'form' %>
+<button type="button" class="btn btn-light">
+  <%= link_to "Back", admin_question_path(@answer.question) %>
+</button>

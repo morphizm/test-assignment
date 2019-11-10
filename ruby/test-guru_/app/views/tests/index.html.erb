@@ -1,0 +1,28 @@
+<div class="container m-4">
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col" class="sort-by-title pointer">
+          Title
+          <%= octicon 'arrow-up', class: 'text-success hide' %>
+          <%= octicon 'arrow-down', class: 'text-success hide' %>
+        </th>
+        <th scope="col">Level</th>
+        <th scope="col">Quantity questions</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @tests.each do |test| %>
+      <tr>
+        <td><%= test.title %></td>
+        <td><%= test.level %></td>
+        <td><%= question_quantity test %></td>
+        <td><%= button_to 'Start', start_test_path(test), class: "btn btn-light" %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+<%= link_to 'Badges', badges_path, class: "btn btn-light" %>
