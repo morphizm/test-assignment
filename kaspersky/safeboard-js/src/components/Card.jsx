@@ -25,6 +25,6 @@ export default class Card extends React.Component {
       );
     });
 
-    return card;
+    return <div className="row justify-content-center">{card}</div>;
   }
 }
